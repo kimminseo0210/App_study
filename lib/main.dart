@@ -16,26 +16,58 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(backgroundColor: Colors.deepPurpleAccent,),
         body: Container(
-          child: Row(
+          padding: EdgeInsets.all(10),
+          child: ListView(
             children: [
-              Image.asset('assets/Haerin1.jpg', width: 150,),
-              Container(
-                child: Column(
-                  children: [
-                    Text('강해린입니다'),
-                    Text('신창면'),
-
-                  ],
-                ),
-              ),
+              addressCard(),
+              addressCard(),
+              addressCard(),
             ],
           ),
         ),
+        bottomNavigationBar: bottomBar(),
+      )
+    );
+  }
+}
 
+class addressCard extends StatelessWidget {
+  const addressCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: [
+          Icon(Icons.account_circle_rounded),
+          Text('kimminseo'),
+        ],
       ),
     );
   }
 }
 
+class bottomBar extends StatelessWidget {
+  const bottomBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 65,
+      child: const BottomAppBar(
+        color: Colors.deepPurpleAccent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.call, color: Colors.white,),
+            Icon(Icons.message, color: Colors.white),
+            Icon(Icons.account_box_rounded, color: Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+}
