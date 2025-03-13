@@ -6,6 +6,21 @@ void main() {
   // () <- 앱 메인페이지 입력
 }
 
+Widget bottomBar = SizedBox(
+  height: 65,
+  child: BottomAppBar(
+    color: Colors.deepPurpleAccent,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Icon(Icons.arrow_back, color: Colors.white),
+        Icon(Icons.home, color: Colors.white),
+        Icon(Icons.menu, color: Colors.white),
+      ],
+    ),
+  ),
+);
+
 // 여기부터
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -16,7 +31,10 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.deepPurpleAccent,),
+        appBar: AppBar(
+          toolbarHeight: 20,
+          backgroundColor: Colors.deepPurpleAccent,
+        ),
         body: Container(
           padding: EdgeInsets.all(10),
           child: ListView(
@@ -27,12 +45,13 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: bottomBar(),
+        bottomNavigationBar: bottomBar,
       )
     );
   }
 }
 
+// 주소록 : 사진 + 이름
 class addressCard extends StatelessWidget {
   const addressCard({Key? key}) : super(key: key);
 
@@ -50,24 +69,25 @@ class addressCard extends StatelessWidget {
   }
 }
 
-class bottomBar extends StatelessWidget {
-  const bottomBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 65,
-      child: const BottomAppBar(
-        color: Colors.deepPurpleAccent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Icon(Icons.call, color: Colors.white,),
-            Icon(Icons.message, color: Colors.white),
-            Icon(Icons.account_box_rounded, color: Colors.white),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// // 하단 네비게이션 바
+// class bottomBar extends StatelessWidget {
+//   const bottomBar({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       height: 65,
+//       child: const BottomAppBar(
+//         color: Colors.deepPurpleAccent,
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: [
+//             Icon(Icons.arrow_back, color: Colors.white,),
+//             Icon(Icons.home, color: Colors.white),
+//             Icon(Icons.menu, color: Colors.white),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
